@@ -1,0 +1,39 @@
+
+
+.body-suculentas {
+    @include body-page (4500px, 100%);
+
+    .body-suculentas-header {
+        @include heder-body (750px, 100%, 0%);
+        color: black;
+        font-size: 1rem;
+        padding: 20px;
+        opacity: 0.97;
+        z-index: 1;
+    }
+}
+
+
+@media screen and (max-width: $tablet) {
+.body-suculentas {
+    .body-suculentas-header {
+        font-size: 0.9rem;
+    }
+}
+}
+
+@media screen and (max-width: $mobile) {
+   
+   .body-suculentas{
+    .body-suculentas-header {
+        font-size: 0.55rem;
+        top: -1%;
+        height: 670px;
+        .body-titulo-heder {
+            text-align: center;
+        }
+    }
+
+   }
+    
+}

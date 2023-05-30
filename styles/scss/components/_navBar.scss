@@ -1,0 +1,36 @@
+// barra de navegacion 
+
+.navbar {
+    position: relative;
+    display: flex;
+    grid-column: 1/4;
+    justify-content: end;
+    height: 100%;
+    z-index: 2;
+
+    #navbarSupportedContent {
+        flex-grow: 0;
+    }
+    form .btn {
+        color: black;
+    }
+}
+
+
+@media screen and (max-width: $tablet) {
+    .nav-link,
+    .form-control {
+        padding-left: 20px;
+    }
+
+    .collapse {
+        background-color: #fafcc2;
+        border-radius: 20px;
+    }
+}
+@media screen and (max-width: $mobile) {
+    .collapse {
+        background-color: #fafcc2;
+        border-radius: 20px;
+    }
+}

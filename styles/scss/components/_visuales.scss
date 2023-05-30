@@ -1,0 +1,413 @@
+// variables locales
+
+$borde-visual-0: 34% 64% 77% 26% / 73% 54% 45% 19%;
+$borde-visual-50: 75% 31% 40% 71% / 83% 44% 76% 61%;
+$borde-visual-100: 34% 64% 77% 26% / 73% 54% 45% 19%;
+
+// visuales generales
+
+.visualE {
+    position: absolute;
+    display: inline;
+    grid-column: 2/3;
+    grid-row: 3/4;
+    height: 2px;
+    width: 120.6%;
+    background-color: black;
+    opacity: .2;
+}
+
+@media screen and (max-width: $tablet ) {
+    .visualE {
+        grid-column: 3/4;
+        grid-row: 2/3;
+        height: 70%;
+        width: 2px;
+        justify-self: center;
+    }
+}
+@media screen and (max-width: $mobile ) {
+    .visualE {
+        height: 50%;
+        align-self: center;
+        bottom: 36%;
+    }
+}
+
+
+// visuales home
+
+#visualA-miplanta {
+    position: absolute;
+    display: inline;
+    grid-column: 3/4;
+    grid-row: 2/3;
+    justify-self: center;
+    height: 100%;
+    width: 2px;
+    background-color: black;
+    opacity: .2;
+}
+
+#visualB {
+    position: absolute;
+    display: inline-block;
+    grid-column: 1/2;
+    grid-row: 2/3;
+    top: 35%;
+    left: 100%;
+    height: 80px;
+    width: 50px;
+    background-color: #F7EDDB;
+    opacity: .8;
+    border-radius: 34% 64% 77% 26% / 73% 54% 45% 19%;
+    transform: rotate(50deg);
+
+    animation: moveimg-home 3s ease infinite;
+}
+
+#visualC {
+    position: absolute;
+    display: inline;
+    grid-column: 1/2;
+    grid-row: 2/3;
+    width: 200px;
+    height: 300px;
+    top: 15%;
+    left: 80%;
+
+}
+#imgVisualCmiplanta {
+    position: absolute;
+    display: inline;
+    width: 100%;
+    height: 100%;
+}
+
+
+@keyframes moveimg-home {
+    0% {
+        border-radius: 34% 64% 77% 26% / 73% 54% 45% 19%;
+    }
+
+    50% {
+        border-radius: 75% 31% 40% 71% / 83% 44% 76% 61%;
+
+    }
+
+    100% {
+        border-radius: 34% 64% 77% 26% / 73% 54% 45% 19%;
+    }
+}
+
+@media screen and (max-width: $tablet){
+    #visualA-miplanta {
+        display: none;
+    } 
+
+    #visualC {
+        top: 10%;
+        left: 0;
+    }
+    #visualB {
+        top: 32%;
+        left: 44%;
+    }
+
+}
+
+@media screen and (max-width: $mobile) {
+    #visualC {
+        grid-column: 2/3;
+        top: 18%;
+        left: 10%;
+    }
+    #visualB {
+        grid-column: 2/3;
+        top: 40%;
+        left: 35%;
+    }
+    #visualA-miplanta {
+        display: none;
+    } 
+}
+
+// visuales formulario 
+.visualForm {
+    z-index: -1;
+    opacity: .5;
+}
+
+
+#fondoAform {
+    position: absolute;
+  grid-column: 1/2;
+  grid-row: 3/4;
+  top: 30%;
+  z-index: -1;
+  opacity: .5;
+}
+
+#fondoBform {
+    position: absolute;
+    grid-column: 2/3;
+    grid-row: 3/4;
+    height: 600px;
+    width: 450px;
+    left: 61%;
+    top: 23%;
+    z-index: -1;
+    opacity: 0.5;
+}
+
+@media screen and (max-width: $tablet) {
+    #fondoBform {
+        display: none;
+    }
+
+}
+@media screen and (max-width: $mobile) {
+    #fondoAform {
+        grid-column: 1/3;
+        width: 100%;
+        top: 25%;
+        opacity: 0.2;
+    }
+}
+
+// visuales suculentas 
+
+#visualAA {
+    position: absolute;
+    grid-column: 2/3;
+    grid-row: 2/3;
+    justify-self: end;
+    align-self: center;
+    width: 200px;
+    height: 250px;
+    top: 20%;
+    left: 67%;
+}
+
+#imgVisualSucu {
+    position: absolute;
+    display: inline;
+    width: 100%;
+    height: 100%;
+}
+
+#visualAB {
+    position: absolute;
+    grid-column: 2/3;
+    grid-row: 2/3;
+    justify-self: end;
+    align-self: center;
+    top: 26%;
+    right: 16%;
+    height: 132px;
+    width: 80px;
+    background-color: #F8C4B4;
+    opacity: .5;
+    border-radius: 34% 64% 77% 26% / 73% 54% 45% 19%;
+    transform: rotate(50deg);
+    animation: moveimg-sucu 3s ease infinite;
+}
+
+@keyframes moveimg-sucu {
+    0% {
+        border-radius: $borde-visual-0;
+    }
+
+    50% {
+        border-radius: $borde-visual-50;
+        transform: rotate(40deg);
+
+    }
+
+    100% {
+        border-radius: $borde-visual-100;
+    }
+}
+
+@media screen and (max-width: $tablet) {
+    #visualAB {
+        right: 0%;
+    }
+}
+@media screen and (max-width: $mobile)  {
+    #imgVisualSucu {
+        height: 80%;
+        width: 80%;
+    }
+    #visualAA {
+        top: initial;
+        left: 15%;
+        justify-self: start;
+    }
+    #visualAB {
+
+        top: initial;
+        right: 30%;
+    }
+}
+
+// visuales arboles 
+
+#visualBA {
+    position: absolute;
+    display: inline;
+    grid-column: 2/3;
+    grid-row: 2/3;
+    width: 400px;
+    height: 500px;
+    align-self: end;
+    justify-self: end;
+    top: 25%;
+}
+   
+#imgVisualArbol {
+    position: absolute;
+    display: inline;
+    width: 100%;
+    height: 100%;
+}
+
+#visualBB {
+    position: absolute;
+    display: inline;
+    grid-column: 2/3;
+    grid-row: 2/3;
+    align-self: center;
+    justify-self: end;
+    top: 35%;
+    right: 17%;
+    height: 220px;
+    width: 116px;
+    background-color: #C9F4AA;
+    opacity: .5;
+    border-radius: 34% 64% 77% 26% / 73% 54% 45% 19%;
+    transform: rotate(50deg);
+    animation: moveimg-arbol 3s ease infinite;
+}
+
+@keyframes moveimg-arbol {
+    0% {
+        border-radius: $borde-visual-0;
+    }
+
+    50% {
+        border-radius: $borde-visual-50;
+        transform: rotate(40deg);
+        
+    }
+    
+    100% {
+        border-radius: $borde-visual-100;
+    }
+}
+
+@media screen and (max-width: $tablet) {
+    #visualBA {
+        align-self: center;
+        height: 400px;
+        width: 300px;
+        justify-self: center;
+    }
+    #visualBB {
+        height: 170px;
+        width: 90px;
+        justify-self: center;
+        top: 35%;
+        right: 35%;
+    }
+}
+@media screen and (max-width: $mobile) {
+    #imgVisualArbol {
+        height: 80%;
+    }
+    #visualBA {
+        height: 300px;
+        width: 200px;
+        align-self: center;
+       justify-self: auto;
+       left: 0%;
+       top: 25%;
+    }
+    #visualBB {
+        height: 150px;
+        width: 100px;
+        top: 30%;
+        right: 0%;
+        left: 35%;
+    }
+}
+
+
+// visuales cuidados generales 
+#visualCA {
+    position: absolute;
+    grid-column: 2/3;
+    grid-row: 2/3;
+    justify-self: center;
+    align-self: end;
+    width: 300px;
+    height: 250px;
+    top: 50%;
+    transform: rotate(90deg);
+}
+
+#imgVisualCuidadogrl {
+    position: absolute;
+    display: inline;
+    width: 100%;
+    height: 100%;
+}
+
+#visualCB {
+    position: absolute;
+    display: inline-block;
+    grid-column: 2/3;
+    grid-row: 2/3;
+    top: 51%;
+    left: 40%;
+    height: 220px;
+    width: 116px;
+    background-color: #B5EAEA;
+    opacity: .5;
+    border-radius: 34% 64% 77% 26% / 73% 54% 45% 19%;
+    transform: rotate(90deg);
+    animation: moveimg-cuigrl 3s ease infinite;
+}
+
+@keyframes moveimg-cuigrl {
+    0% {
+        border-radius: $borde-visual-0;
+    }
+
+    50% {
+        border-radius: $borde-visual-50;
+        transform: rotate(70deg);
+
+    }
+
+    100% {
+        border-radius: $borde-visual-100
+    }
+}
+
+
+@media screen and (max-width: $mobile) {
+    #imgVisualCuidadogrl {
+        width: 80%;
+        height: 80%;
+    }
+    #visualCA {
+        justify-self: end;
+        align-self: center;
+    }
+    #visualCB {
+        left: 30%;
+        height: 35%;
+        width: 40%;
+    }
+}

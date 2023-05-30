@@ -1,0 +1,35 @@
+// utils 
+@import "./utils/variables";
+@import "./utils/mixins";
+
+
+// base 
+@import "./base/reset";
+@import "./base/typography";
+
+
+
+// component 
+@import "./components/navBar";
+@import "./components/visuales";
+@import "./components/cards";
+@import "./components/button-miplanta";
+@import "./components/signal-scroll";
+
+
+// layout
+@import "./layout/footer";
+@import "./layout/gallery";
+@import "./layout/hero";
+@import "./layout/header";
+
+// page 
+@import "./pages/index";
+@import "./pages/suculentas";
+@import "./pages/arboles"; 
+@import "./pages/cuidadosGrl";
+@import "./pages/formulario";
+@import "./pages/shop";
+@import "./pages/arreglo";
+@import "./pages/recomendacion";
+ 

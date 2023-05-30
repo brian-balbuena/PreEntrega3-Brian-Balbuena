@@ -1,0 +1,22 @@
+.galeria {
+    position: absolute;
+    display: grid;
+    grid-template-columns: 0.5fr 1fr 1fr 1fr 1fr 0.5fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
+    width: 100%;
+    opacity: .9;
+    top: 20%;
+    z-index: 2;
+}
+
+@media screen and (max-width: $tablet) {
+    .galeria {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+@media screen and (max-width: $mobile) {
+    .galeria {
+        grid-template-columns: 1fr 80% 1fr;
+        row-gap: 50px;
+    }
+}

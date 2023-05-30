@@ -1,0 +1,13 @@
+.boton-miplanta {
+    height: 50px;
+    border-radius: 10px;
+    font-size: 1.5rem;
+    color: #285430;
+    cursor: pointer;
+   
+
+    &:hover {
+        color: #AAA492;
+    }
+
+}

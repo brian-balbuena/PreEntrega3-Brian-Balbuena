@@ -1,0 +1,49 @@
+.control-scroll {
+    grid-row: 3/4;
+    grid-column: 2/3;
+    justify-self: center;
+    align-self: center;
+    opacity: .2;
+
+    .img-scroll {
+        height: 50px;
+        width: 50px;
+    }
+
+    .text-croll {
+        margin: 0;
+    }
+}
+
+#scrollB {
+    text-align: center;
+}
+
+@media screen and (max-width: $tablet) {
+    #scrollB {
+        padding-bottom: 40px;
+        #imgB-scroll {
+            height: 40px;
+            width: 40px;
+        }
+    }
+}
+
+@media screen and (max-width: $mobile) {
+    .control-scroll {
+       grid-row: 2/3;
+       align-self: end;
+    }
+
+    #scrollB {
+        align-self: center;
+        padding-bottom: 0px;
+        #imgB-scroll {
+            height: 30px;
+            width: 30px;
+        }
+    }
+    
+}
+
+

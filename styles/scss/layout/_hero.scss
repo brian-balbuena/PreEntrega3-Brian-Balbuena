@@ -1,0 +1,16 @@
+.hero {
+    @include hero;
+}
+
+@media screen and (max-width: $tablet) {
+    .hero {
+        grid-template-rows: 81px 1fr;
+        grid-template-columns: 1fr 60% 1fr;
+    }
+}
+@media screen and (max-width: $mobile) {
+    .hero {
+        grid-template-columns: 1fr 70% 1fr;
+        grid-template-rows: 81px 86%;
+    }
+}

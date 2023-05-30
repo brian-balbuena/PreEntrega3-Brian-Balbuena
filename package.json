@@ -1,0 +1,13 @@
+{
+  "name": "miplanta",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "watch-scss": "sass --watch styles/scss/main.scss styles/css/style1.css"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

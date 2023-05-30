@@ -1,0 +1,50 @@
+.body-arboles {
+    @include body-page (4500px, 100%);
+
+    .body-arboles-header {
+        @include heder-body (750px, 100%, 0%);
+        color: black;
+        font-size: 0.8rem;
+        padding: 20px;
+        opacity: 0.97;
+        z-index: 1;
+    }
+}
+
+@media screen and (max-width: $tablet) {
+    .body-arboles {
+        .body-arboles-header {
+            top: -1%;
+            height: 685px;
+            font-size: 0.6rem;
+        }
+    }
+
+
+}
+
+@media screen and (max-width: $mobile) {
+
+    .body-arboles {
+        .body-arboles-header {
+            font-size: 0.55rem;
+
+            .body-titulo-heder {
+                text-align: center;
+            }
+
+            p,
+            ul {
+                margin-bottom: 1px;
+            }
+
+            h5 {
+                font-size: 1rem;
+            }
+
+        }
+    }
+
+
+
+}

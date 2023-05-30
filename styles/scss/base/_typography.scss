@@ -1,0 +1,27 @@
+// fuente
+
+*{
+    font-family: $fuentePricipal;
+}
+
+
+.tituloseccion {
+    font-size: 4rem;
+    margin: 20px 0 20px 0;
+
+}
+
+.subtituloseccion {
+    font-size: 2.5rem;
+    margin: 20px 0 20px 0;
+}
+
+
+@media screen and (max-width: 576px) {
+    .tituloseccion {
+        font-size: 3rem;
+    }
+    .subtituloseccion {
+        font-size: 1.6rem;
+    }
+}

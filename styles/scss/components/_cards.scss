@@ -1,0 +1,96 @@
+.tarjeta {
+    display: flex;
+    flex-direction: column;
+    height: 59%;
+    border: solid black 2px;
+    border-radius: 15px;
+    background-color: $fondoTarjetas;
+    align-self: center;
+    justify-self: center;
+    overflow: hidden;
+    transition: all .4s;
+
+    &:hover {
+        height: 100%;
+    }
+
+    .frente {
+        display: flex;
+        flex-direction: column;
+
+        img {
+            height: 250px;
+            width: 250px;
+            border-radius: 15px;
+        }
+
+        h6 {
+            margin: 10px 50px 0px 50px;
+            font-size: 1rem;
+            text-align: center;
+        }
+    }
+
+    .skills {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 10px;
+
+        .titulo-skill {
+            margin: 10px 0 10px 0;
+        }
+
+        .badge {
+            color: black;
+            padding: 5px;
+            border: solid 2px black;
+            border-radius: 50px;
+        }
+    }
+
+}
+
+@for $i from 1 through 6 {
+    #tarjeta-#{$i} {
+        grid-row: #{$i} / ($i+1);
+        grid-column: #{$i+1} / ($i+2);
+
+        // no se como hacer para que desaparezca 
+        // el que no me sirve, pero por el sistema de cascada funciona 
+        @if $i ==5 {
+            grid-column: #{-1+$i}/ #{$i};
+        }@else if $i >5 {
+            grid-column: #{-3+$i}/ #{-2+$i};
+        }
+    }
+}
+
+
+@media screen and (max-width: $tablet) {
+
+    .tarjeta {
+        height: 100%;
+    }
+
+    @for $i from 1 through 6 {
+        @if ($i % 2)==0 {
+            #tarjeta-#{$i} {
+                grid-column: 2/3;
+            }
+        }@else {
+            #tarjeta-#{$i} {
+                grid-column: 1/2;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: $mobile) {
+
+    @for $i from 1 through 6 {
+        #tarjeta-#{$i} {
+            grid-column: 2/3;
+        }
+    }
+}
