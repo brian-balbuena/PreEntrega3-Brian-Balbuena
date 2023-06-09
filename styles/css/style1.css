@@ -1566,7 +1566,7 @@ footer #iconosFooter .iconosFooter-img {
   position: relative;
   display: grid;
   grid-template-columns: 40% 60%;
-  grid-template-rows: 70% 30%;
+  grid-template-rows: 80% 20%;
   border-bottom: solid 1px black;
   width: 700px;
   height: 500px;
@@ -1602,15 +1602,17 @@ footer #iconosFooter .iconosFooter-img {
 }
 .tarjeta-recomendacion .tarjeta-recomendacion-body .tarjeta-recomendacion-head .recomendacion-body {
   font-size: 0.9rem;
-  margin: 40px 10px 0 10px;
+  margin: 20px 10px 0 10px;
 }
 .tarjeta-recomendacion .tarjeta-recomendacion-body .recomendacion-skills {
   display: flex;
-  justify-content: space-around;
+  justify-content: flex-end;
   grid-column: 2/3;
   grid-row: 2/3;
   background-color: #F7EDDB;
   font-size: 0.8rem;
+  align-content: flex-end;
+  flex-wrap: wrap;
 }
 .tarjeta-recomendacion .tarjeta-recomendacion-body .recomendacion-skills .recomendacion-carrito {
   display: flex;

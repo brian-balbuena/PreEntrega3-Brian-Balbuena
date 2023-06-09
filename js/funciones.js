@@ -96,6 +96,63 @@ function crearTarjeta(array, nombre) {
         parrafoBody.className = "recomendacion-body";
         parrafoBody.innerHTML += `${array[i].propiedades}`; //grabo las propiedades desde el array
         tarjRecoHead.appendChild(parrafoBody);
+
+
+        const recomenSkills = document.createElement('div');
+        recomenSkills.className = "recomendacion-skills";
+        sectionBody.appendChild(recomenSkills);
+
+        // const recomenShop = document.createElement('div');
+        // recomenShop.className = "recomendacion-shop";
+        // recomenSkills.appendChild(recomenShop);
+
+        // const botonIrShop = document.createElement('button');
+        // botonIrShop.setAttribute('type', 'button');
+        // botonIrShop.className = "btn btn-outline-success";
+        // botonIrShop.id = "boton-verShop";
+        // botonIrShop.textContent = "Ver en SHOP";
+        // recomenShop.appendChild(botonIrShop);
+        // const logoshop = document.createElement('i');
+        // logoshop.className = "bi bi-shop";
+        // botonIrShop.appendChild(logoshop);
+
+        const recomenCarrito = document.createElement('div');
+        recomenCarrito.className = "recomendacion-carrito";
+        recomenSkills.appendChild(recomenCarrito);
+
+        const contenedorBotonAdd = document.createElement('div');
+        contenedorBotonAdd.className = "input-group mb-3";
+        recomenCarrito.appendChild(contenedorBotonAdd);
+
+        // const recomenInputCarrito = document.createElement('input');
+        // recomenInputCarrito.setAttribute('type', 'number');
+        // recomenInputCarrito.className = "recomendacion-carrito-input form-control-sm";
+        // recomenInputCarrito.id = "recomendacion-carrito-agregar";
+        // recomenInputCarrito.value = "1";
+        // recomenInputCarrito.setAttribute('aria-label', 'Recipient username');
+        // recomenInputCarrito.setAttribute('aria-describedby', 'aria-describedby');
+        // contenedorBotonAdd.appendChild(recomenInputCarrito);
+
+        const botonAddShop = document.createElement('button');
+        botonAddShop.setAttribute('type', 'button');
+        botonAddShop.className = "btn btn-success";
+        botonAddShop.id = `botonadd${array[i].ID}`;
+        botonAddShop.textContent = "quitar recomendación";
+        contenedorBotonAdd.appendChild(botonAddShop);
+
+
+        const bottonCambiar = document.getElementById(`botonadd${array[i].ID}`);
+        bottonCambiar.addEventListener("click", () => {
+
+            if (botonAddShop.className === "btn btn-success") {
+                botonAddShop.className = "btn btn-danger";
+                botonAddShop.textContent = "agregar a recomendación";
+            } else {
+                botonAddShop.className = "btn btn-success";
+                botonAddShop.textContent = "quitar recomendación";
+            }
+
+        })
     }
     // le agrego un footer
     const recomenFooter = document.createElement('section');
@@ -217,4 +274,5 @@ function crearTarjeta(array, nombre) {
     const footerCopyriParra = document.createElement('p');
     footerCopyriParra.innerHTML = "Copyright(c)2023 mi PLANta";
     footerCopyri.appendChild(footerCopyriParra);
+
 }
