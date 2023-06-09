@@ -4,6 +4,8 @@ shopForm.addEventListener("click", () => {
     window.location.href = "../paginas/shop.html";
 })
 
+
+
 // capturo boton recomendación 
 let botonEnviar = document.getElementById('buscarReco');
 
@@ -22,23 +24,22 @@ botonEnviar.addEventListener("click", () => {
         if (nombre.value == "" || edad.value == "" || mail.value == "") {
             alert("Si quiere recibir una planilla de recomendación de su planta, por favor complete los campos obligatorios ")
         } else {
-            arrayRecom = []; // array donde se va a guardar todas las recomendaciones
-
-            for (let i = 0; i < productosLocal.length; i++) {
-                if (Array.isArray(productosLocal[i].vivienda)) {  //si vivienda tiene un array entra 
-                    let obj = productosLocal[i];
+            arrayRecom = []; // array donde se va a guardar todas las recomendaciones       
+            for (let i = 0; i < basePlantas.length; i++) {
+                if (Array.isArray(basePlantas[i].vivienda)) {  //si vivienda tiene un array entra 
+                    let obj = basePlantas[i];
                     let arr = obj.vivienda;
 
                     for (let j = 0; j < arr.length; j++) {
                         // console.log (arr[j]);
-                        if (arr[j] === vivienda() && productosLocal[i].ubicacion === ubicacion() && productosLocal[i].proposito === proposito()) {
-                            arrayRecom.push(productosLocal[i]);
+                        if (arr[j] === vivienda() && basePlantas[i].ubicacion === ubicacion() && basePlantas[i].proposito === proposito()) {
+                            arrayRecom.push(basePlantas[i]);
                         }
                     }
                 } else { //si no hay array dentro del objeto, graba.
                     // console.log( productosLocal[i].vivienda);
-                    if (productosLocal[i].vivienda === vivienda() && productosLocal[i].ubicacion === ubicacion() && productosLocal[i].proposito === proposito()) {
-                        arrayRecom.push(productosLocal[i]);
+                    if (basePlantas[i].vivienda === vivienda() && basePlantas[i].ubicacion === ubicacion() && basePlantas[i].proposito === proposito()) {
+                        arrayRecom.push(basePlantas[i]);
                     }
                 }
             }
