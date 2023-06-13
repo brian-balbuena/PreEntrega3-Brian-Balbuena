@@ -35,6 +35,8 @@ function recorteArray(array) {
     return arrayRecorte;
 }
 
+let arrayCompras = [];
+//  newArray = [];
 
 // creo la pagina que se va a mostrar con las recomendaciones
 function crearTarjeta(array, nombre) {
@@ -62,6 +64,7 @@ function crearTarjeta(array, nombre) {
         Acordate que tenemos un shop donde podes adquir tus plantas, accesorios y mucho mas.`;
     sectionHeader.appendChild(parrafoHeader);
 
+    
     // creo las tarjetas de recomendacion 
     for (let i = 0; i < array.length; i++) {
 
@@ -141,19 +144,38 @@ function crearTarjeta(array, nombre) {
         contenedorBotonAdd.appendChild(botonAddShop);
 
 
+        arrayCompras = array;
+        ar = arrayCompras;
+        
         const bottonCambiar = document.getElementById(`botonadd${array[i].ID}`);
         bottonCambiar.addEventListener("click", () => {
 
             if (botonAddShop.className === "btn btn-success") {
                 botonAddShop.className = "btn btn-danger";
                 botonAddShop.textContent = "agregar a recomendación";
+                // se saca el elemeto del array 
+                let propiedadBuscada = "nombre";
+                 valorBuscado = `${arrayCompras[i].nombre}`;  
+                 indice = arrayCompras.findIndex((objeto) =>{
+                  return objeto[propiedadBuscada] === valorBuscado;
+                });
+
+                if (indice !== -1) {
+                    // elimino el objeto indicado 
+                    objeliminado =  arrayCompras.splice(indice, 1);  
+                }
+
             } else {
                 botonAddShop.className = "btn btn-success";
                 botonAddShop.textContent = "quitar recomendación";
-            }
-
+                // vuelvo incorporar el objero eliminado en la misma posicion 
+                arrayCompras.splice(indice, 0 , objeliminado[0]); 
+                
+            }          
         })
     }
+
+  
     // le agrego un footer
     const recomenFooter = document.createElement('section');
     recomenFooter.className = "recomendacion-footer";
@@ -219,24 +241,15 @@ function crearTarjeta(array, nombre) {
     recomenFooterEnlaces.className = "recomendacion-footer-enlaces";
     recomenFooter.appendChild(recomenFooterEnlaces);
 
-    const recomenIconoCarrito = document.createElement('a');
-    recomenIconoCarrito.id = "recomendacion-icono-carrito";
-    recomenIconoCarrito.className = "icon-link icon-link-hover text-center link-success link-underline-success link-underline-opacity-25";
-    recomenIconoCarrito.href = "./shop.html";
-    recomenIconoCarrito.innerHTML = "SHOP";
-    recomenFooterEnlaces.appendChild(recomenIconoCarrito);
+    const botonIconoCarrito = document.createElement('button');
+    botonIconoCarrito.setAttribute('type', 'button');
+    botonIconoCarrito.className = "btn btn-outline-success";
+    botonIconoCarrito.id = "recomendacion-icono-carrito";
+    botonIconoCarrito.innerHTML = "ver recomendacion en shop";
+    recomenFooterEnlaces.appendChild(botonIconoCarrito);
     const logoFooterShop = document.createElement('i');
     logoFooterShop.className = "bi bi-cart4";
-    recomenIconoCarrito.appendChild(logoFooterShop);
-
-    const svgShop = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
-    svgShop.classList.add('bi');
-    svgShop.setAttribute('aria-hidden', 'true');
-    recomenIconoCarrito.appendChild(svgShop);
-
-    const useShop = document.createElementNS('http://www.w3.org/2000/svg', 'use');
-    useShop.setAttribute('xlink:href', '#arrow-right');
-    svgShop.appendChild(useShop);
+    botonIconoCarrito.appendChild(logoFooterShop);
 
     const recomenIconoHome = document.createElement('a');
     recomenIconoHome.id = "recomendacion-icono-home";
@@ -274,5 +287,21 @@ function crearTarjeta(array, nombre) {
     const footerCopyriParra = document.createElement('p');
     footerCopyriParra.innerHTML = "Copyright(c)2023 mi PLANta";
     footerCopyri.appendChild(footerCopyriParra);
+
+    // trabajo dentro del html que se crea para poder usar los botones
+    let recomendacionEnShop = document.getElementById('recomendacion-icono-carrito');
+    recomendacionEnShop.addEventListener('click', () => {
+        // guardo el array de recomedacion en la sessionStorage 
+        arrayCompraslocalStorage = JSON.stringify(arrayCompras);
+        sessionStorage.setItem('recomendacion', arrayCompraslocalStorage);
+
+        window.location.href = "./shop_recomendacion.html";
+
+        // arrayCompras.forEach(element => {
+        //     console.log(element.nombre)
+        // });
+
+       
+    })
 
 }

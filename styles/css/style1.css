@@ -1661,10 +1661,7 @@ footer #iconosFooter .iconosFooter-img {
   grid-row: 1/2;
   justify-self: center;
   align-self: center;
-  font-size: 1.3rem;
-  position: relative;
-  width: 24%;
-  height: 50px;
+  font-size: 1.4rem;
 }
 .tarjeta-recomendacion .recomendacion-footer .recomendacion-footer-enlaces #recomendacion-icono-home {
   grid-column: 1/2;

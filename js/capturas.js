@@ -17,3 +17,5 @@ let ubiExterior = document.getElementById('exterior');
 
 let propoHuerta = document.getElementById('huerta');
 let propoDeco = document.getElementById('deco');
+
+

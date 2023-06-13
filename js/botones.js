@@ -1,9 +1,3 @@
-//boton shop en form 
-let shopForm = document.getElementById('irShop');
-shopForm.addEventListener("click", () => {
-    window.location.href = "../paginas/shop.html";
-})
-
 
 
 // capturo boton recomendación 
@@ -63,9 +57,12 @@ botonEnviar.addEventListener("click", () => {
         top: 0,
         behavior: 'smooth'
     });
+
+    // arrayCompras.forEach(element => {
+    //     console.log(element.nombre);
+    // });
+   
 });
-
-
 
 
 
