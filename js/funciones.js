@@ -36,10 +36,11 @@ function recorteArray(array) {
 }
 
 let arrayCompras = [];
+let arrayDatosPersonal = [];
 //  newArray = [];
 
 // creo la pagina que se va a mostrar con las recomendaciones
-function crearTarjeta(array, nombre) {
+function crearTarjeta(array, nombre, mail) {
 
     const firstChild = document.body.firstChild;
 
@@ -64,7 +65,7 @@ function crearTarjeta(array, nombre) {
         Acordate que tenemos un shop donde podes adquir tus plantas, accesorios y mucho mas.`;
     sectionHeader.appendChild(parrafoHeader);
 
-    
+
     // creo las tarjetas de recomendacion 
     for (let i = 0; i < array.length; i++) {
 
@@ -146,7 +147,7 @@ function crearTarjeta(array, nombre) {
 
         arrayCompras = array;
         ar = arrayCompras;
-        
+
         const bottonCambiar = document.getElementById(`botonadd${array[i].ID}`);
         bottonCambiar.addEventListener("click", () => {
 
@@ -155,27 +156,27 @@ function crearTarjeta(array, nombre) {
                 botonAddShop.textContent = "agregar a recomendación";
                 // se saca el elemeto del array 
                 let propiedadBuscada = "nombre";
-                 valorBuscado = `${arrayCompras[i].nombre}`;  
-                 indice = arrayCompras.findIndex((objeto) =>{
-                  return objeto[propiedadBuscada] === valorBuscado;
+                valorBuscado = `${arrayCompras[i].nombre}`;
+                indice = arrayCompras.findIndex((objeto) => {
+                    return objeto[propiedadBuscada] === valorBuscado;
                 });
 
                 if (indice !== -1) {
                     // elimino el objeto indicado 
-                    objeliminado =  arrayCompras.splice(indice, 1);  
+                    objeliminado = arrayCompras.splice(indice, 1);
                 }
 
             } else {
                 botonAddShop.className = "btn btn-success";
                 botonAddShop.textContent = "quitar recomendación";
                 // vuelvo incorporar el objero eliminado en la misma posicion 
-                arrayCompras.splice(indice, 0 , objeliminado[0]); 
-                
-            }          
+                arrayCompras.splice(indice, 0, objeliminado[0]);
+
+            }
         })
     }
 
-  
+
     // le agrego un footer
     const recomenFooter = document.createElement('section');
     recomenFooter.className = "recomendacion-footer";
@@ -288,20 +289,27 @@ function crearTarjeta(array, nombre) {
     footerCopyriParra.innerHTML = "Copyright(c)2023 mi PLANta";
     footerCopyri.appendChild(footerCopyriParra);
 
+    // creo un array con los datos personales para utilizarlo en el login 
+    class Persona {
+        constructor(nombre, email) {
+            this.nombre = nombre;
+            this.mail = email;
+        }
+    }
+    let persona = new Persona(nombre, mail.value)
+    arrayDatosPersonal.push(persona);
+
     // trabajo dentro del html que se crea para poder usar los botones
     let recomendacionEnShop = document.getElementById('recomendacion-icono-carrito');
     recomendacionEnShop.addEventListener('click', () => {
         // guardo el array de recomedacion en la sessionStorage 
         arrayCompraslocalStorage = JSON.stringify(arrayCompras);
         sessionStorage.setItem('recomendacion', arrayCompraslocalStorage);
-
+        // me traigo los datos ingresados en el formulario 
+        datosPersonalesLocalStorage = JSON.stringify(arrayDatosPersonal);
+        sessionStorage.setItem('infopersonal', datosPersonalesLocalStorage);
+        // enruto con una seccion de recomendacion del shop 
         window.location.href = "./shop_recomendacion.html";
-
-        // arrayCompras.forEach(element => {
-        //     console.log(element.nombre)
-        // });
-
-       
     })
 
 }

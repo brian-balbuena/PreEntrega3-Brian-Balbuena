@@ -5,7 +5,7 @@ let productosLocal = JSON.parse(productos);
 // capturo datos personales
 let nombreFocus = document.getElementById("nombre");
 let edad = document.getElementById('edad');
-let mail = document.getElementById('mail');
+ mail = document.getElementById('mail');
 nombreFocus.focus();
 
 // capturo opciones

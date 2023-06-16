@@ -1,14 +1,30 @@
-
+// traigo los array del localStorage 
 obtenerArray = sessionStorage.getItem('recomendacion');
 arrayRecomendacion = JSON.parse(obtenerArray);
+
+datosArray = sessionStorage.getItem('infopersonal');
+arrayDatosPersonales = JSON.parse(datosArray);
+nombreUser = arrayDatosPersonales[0].nombre;
+mailUser = arrayDatosPersonales[0].mail;
+
+// usuarios registrados 
+let userLogin = [];
+
+
+
+
 
 
 let botonn = document.getElementById('boton');
 botonn.addEventListener('click', () => {
-    arrayRecomendacion.forEach(element => {
-        console.log(element.nombre);
-    });
+    // arrayDatosPersonales.forEach(element => {
+    //     console.log(element.nombre);
+    //     console.log(element.mail);
+    // });
+   
+    console.log(arrayDatosPersonales[0].nombre)
 })
+
 
 // se crean las tarjetas cuando carga el DOM 
 document.addEventListener('DOMContentLoaded', () => {
@@ -52,5 +68,30 @@ document.addEventListener('DOMContentLoaded', () => {
         cardBody.appendChild(buttonAddCarrito);
 
     }
+
+    
+
+})
+
+// activo el login
+let registro = document.getElementById('card-registro');
+let buttonRegistro = document.getElementById('button-registro');
+buttonRegistro.addEventListener('click', () => {
+    registro.style.display = "flex";
+
+    // evito el scroleo 
+    let body = document.getElementsByTagName('body')[0];
+    // Guarda la posición actual de desplazamiento
+    let scrollPosition = window.pageYOffset || document.documentElement.scrollTop;
+    // Establece la posición de desplazamiento a la posición guardada
+    window.onscroll = () => {
+        window.scrollTo(0, scrollPosition);
+    };
+
+
+    // Agrega el estilo "overflow: hidden" al <body>
+    body.style.overflow = 'hidden';
+
+
 
 })

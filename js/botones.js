@@ -40,10 +40,10 @@ botonEnviar.addEventListener("click", () => {
             // si tiene mas de 5 recomendaciones en la base de datos, recorto y le mando 5 opciones random de las recomendaciones
             if (arrayRecom.length > 5) {
                 //tengo crear las planillas con estos datos 
-                crearTarjeta(recorteArray(arrayRecom), nom);
+                crearTarjeta(recorteArray(arrayRecom), nom, mail);
             } else {
                 //creo las planillas con el primer array
-                crearTarjeta(arrayRecom, nom);
+                crearTarjeta(arrayRecom, nom, mail);
             }
             // boton volver al formulario
             let volverFormulario = document.getElementById('recomendacion-icono-form');

@@ -28,6 +28,44 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
 
 <body id="body-shop-recomendacion">
+
+    <section class="registro" id="card-registro">
+        <div class="frente d-flex fw-bold" id="fren">
+            <div class="registro-foto">
+                <img src="../imagenes/login/foto-login.jpg" alt="foto de fondo floral" id="frente-foto-img">
+                <button type="button" class="btn btn-success" id="vuelta">sign up</button>
+            </div>
+            <form class="login fw-bold">
+                <h5>Bienvenido</h5>
+
+                <input class="form-login" type="email" placeholder="mail" aria-label=".form-control-sm example" id="user"
+                  value=""  required>
+                <input id="userPassword" class="form-login" type="password" placeholder="password"
+                    aria-label=".form-control-sm example" required>
+                <button type="submit" class="btn btn-success" id="login">login</button>
+
+            </form>
+        </div>
+        <div class="reversa d-flex fw-bold" id="reve">
+
+            <form class="login">
+                <input id="newUser" class="form-login" type="text" placeholder="user"
+                    aria-label=".form-control-sm example" required>
+                <input id="newMail" class="form-login" type="email" placeholder="mail"
+                    aria-label=".form-control-sm example" required>
+                <input id="newPassword" class="form-login" type="password" placeholder="password">
+                <input id="verificacionPassword" class="form-login" type="password" placeholder=" repeat password"
+                    aria-label=".form-control-sm example" required>
+                <button type="button" class="btn btn-success" id="singUp">sign up</button>
+            </form>
+
+            <div class="registro-foto">
+                <img src="../imagenes/login/foto-login.jpg" alt="foto de fondo floral" id="frente-foto-img">
+                <button type="button" class="btn btn-success" id="giro">login</button>
+            </div>
+        </div>
+    </section>
+
     <!-- barra de navegaion -->
     <section class="menu container-fluid">
         <nav class="navbar navbar-expand-lg bg-transparent">
@@ -63,7 +101,8 @@
         </nav>
         <nav class="navbar bg-transparent" id="barra-inferior">
             <div class="container" id="barra-inferior-opciones">
-                <button type="button" class="botones-inferior btn bg-transparent position-relative">
+                <button type="button" id="button-registro"
+                    class="botones-inferior btn bg-transparent position-relative">
                     <svg xmlns="http://www.w3.org/2000/svg" width="45" height="45" fill="currentColor"
                         class="bi bi-person" viewBox="0 0 16 16">
                         <path
@@ -100,60 +139,6 @@
     <section class="galery-shop-recomendacion">
         <div class="tarjeta-shop-recomendacion d-flex" id="galery-card">
 
-            <!-- <div class="contenedor-tarjeta">
-                <div class="card bg-body-tertiary" style="width: 20rem;">
-                    <img src="../../imagenes/imagenes_baseDatos/pata_oso.png" class="card-img-top" alt="...">
-                    <div class="card-body ">
-                        <h5 class="card-title text-center">pata de oso</h5>
-                        <p class="card-text text-center">$400</p>
-                        <button type="button" class="btn btn-outline-success ">Agregar</button>
-                    </div>
-                </div>
-            </div>
-
-
-
-            <div class="contenedor-tarjeta">
-                <div class="card" style="width: 20rem;">
-                    <img src="../../imagenes/imagenes_baseDatos/pata_oso.png" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title text-center">pata de oso</h5>
-                        <p class="card-text text-center">$400</p>
-                        <button type="button" class="btn btn-outline-success">Agregar</button>
-                    </div>
-                </div>
-            </div>
-            <div class="contenedor-tarjeta">
-                <div class="card" style="width: 20rem;">
-                    <img src="../../imagenes/imagenes_baseDatos/cebolla.jpg" class="card-img-top" alt="...">
-                    <div class="card-body bg-body-tertiary">
-                        <h5 class="card-title text-center">pata de oso</h5>
-                        <p class="card-text text-center">$400</p>
-                        <button type="button" class="btn btn-outline-success">Agregar</button>
-                    </div>
-                </div>
-            </div>
-            <div class="contenedor-tarjeta">
-                <div class="card" style="width: 20rem;">
-                    <img src="../../imagenes/imagenes_baseDatos/albahaca.png" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title text-center">pata de oso</h5>
-                        <p class="card-text text-center">$400</p>
-                        <button type="button" class="btn btn-outline-success">Agregar</button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="contenedor-tarjeta">
-                <div class="card" style="width: 20rem;">
-                    <img src="../../imagenes/imagenes_baseDatos/pata_oso.png" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title text-center">pata de oso</h5>
-                        <p class="card-text text-center">$400</p>
-                        <button type="button" class="btn btn-outline-success">Agregar</button>
-                    </div>
-                </div>
-            </div> -->
         </div>
     </section>
 
@@ -188,11 +173,15 @@
         </div>
 
     </section>
-
+    <script src="../js/js-shop/reco.js"></script>
+    <script src="../js/js-shop/funciones-registro.js"></script>
+    <script src="../js/js-shop/registro.js"></script>
     <script src="../js/datos.js"></script>
     <script src="../js/funciones.js"></script>
-    <script src="../js/reco.js"></script>
+   
 
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
         crossorigin="anonymous"></script>
