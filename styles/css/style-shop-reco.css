@@ -9,7 +9,7 @@ body {
     border-bottom: solid #E1E1E1 1px;
     top: 0;
     backdrop-filter: blur(15px);
-    z-index: 2;
+    z-index: 3;
 }
 
 #enlace-miplanta {
@@ -77,6 +77,11 @@ body {
     display: flex;
     justify-content: center;
     margin-bottom: 50px;
+}
+
+#inputAdd {
+    width: 60%;
+    left: 40%;
 }
 
 /* footer */
