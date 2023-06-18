@@ -9,3 +9,7 @@ const baseDatos = async () => {
     }
 }
 baseDatos();
+
+basePlantas.forEach(element => {
+    console.log(element.nombre)
+});

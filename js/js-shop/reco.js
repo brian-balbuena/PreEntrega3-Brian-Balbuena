@@ -7,23 +7,19 @@ arrayDatosPersonales = JSON.parse(datosArray);
 nombreUser = arrayDatosPersonales[0].nombre;
 mailUser = arrayDatosPersonales[0].mail;
 
+carrito = [];
+
 // usuarios registrados 
 let userLogin = [];
 
-let botonn = document.getElementById('boton');
+let botonn = document.getElementById('volver-form');
 botonn.addEventListener('click', () => {
-  // arrayDatosPersonales.forEach(element => {
-  //     console.log(element.nombre);
-  //     console.log(element.mail);
-  // });
-
-
+  window.location.href = "../paginas/formulario.html";
 })
 
 
 // se crean las tarjetas cuando carga el DOM 
 document.addEventListener('DOMContentLoaded', () => {
-
   // cree un usuario la primera vez que se abre la pagina 
   if (localStorage.getItem('usuarios') == null) {
     let info1 = {
@@ -87,7 +83,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     let precioCard = document.createElement("p");
     precioCard.className = ("card-text text-center");
-    precioCard.innerHTML = ("$0000"); // falta grabar precio en base de datos
+    precioCard.innerHTML = (`$${arrayRecomendacion[i].precio}`);
     cardBody.appendChild(precioCard);
 
     let divButton = document.createElement('div');
@@ -98,20 +94,38 @@ document.addEventListener('DOMContentLoaded', () => {
     let inputAdd = document.createElement('input');
     inputAdd.setAttribute('type', 'number');
     inputAdd.className = ("form-control");
-    inputAdd.setAttribute('placeholder', "1");
+    inputAdd.value = ("1");
     inputAdd.setAttribute('aria-label', "Recipient's username");
     inputAdd.setAttribute('aria-describedby', 'button-addon2');
+    inputAdd.id = (`inputAdd${arrayRecomendacion[i].ID}`);
     divButton.appendChild(inputAdd);
 
     let buttonAddCarrito = document.createElement("button");
     buttonAddCarrito.setAttribute('type', 'button');
     buttonAddCarrito.className = ("btn btn-outline-success");
-    buttonAddCarrito.id = (`addCarrito${arrayRecomendacion[i].id}`);
+    buttonAddCarrito.id = (`addCarrito${arrayRecomendacion[i].ID}`);
     buttonAddCarrito.innerHTML = ("Agregar");
     divButton.appendChild(buttonAddCarrito);
+
+
+    // agrego la cantidad e productos a la session 
+    agregarCarrito = document.getElementById(`addCarrito${arrayRecomendacion[i].ID}`)
+    let inputTarjeta = document.getElementById(`inputAdd${arrayRecomendacion[i].ID}`);
+    arrayRecomendacion[i].cantidad = `${inputTarjeta.value}`;
+    console.log(arrayRecomendacion[i].nombre)
+    console.log(arrayRecomendacion[i].cantidad)
+    agregarCarrito.addEventListener('click', () => {
+      // let cantProducto = inputTarjeta.ariaLabel;
+      let inputTarjeta = document.getElementById(`inputAdd${arrayRecomendacion[i].ID}`);
+
+      // agregar la cantidad a cada producto 
+
+    })
   }
 })
 
+
+// corregir se bloquea el scoll cuando el usuario esta activo
 // activo el login
 let registro = document.getElementById('card-registro');
 let buttonRegistro = document.getElementById('button-registro');
@@ -120,9 +134,7 @@ buttonRegistro.addEventListener('click', () => {
   if (sessionStorage.getItem('userarioActivo') == null) {
     registro.style.display = "flex";
     // evito el scroleo 
-    let body = document.getElementsByTagName('body')[0];
-    // Guarda la posición actual de desplazamiento
-    let scrollPosition = window.pageYOffset || document.documentElement.scrollTop;
+     body = document.getElementsByTagName('body')[0];
     // Establece la posición de desplazamiento a la posición guardada
     window.onscroll = () => {
       window.scrollTo(0, scrollPosition);
@@ -139,6 +151,7 @@ buttonRegistro.addEventListener('click', () => {
       },
       buttonsStyling: false
     })
+    // invertir el color de los botones 
     // usuo el sweetalert2 para crear un mini menu para la session 
     let datosSesion = sessionStorage.getItem('userarioActivo');
     let arraySesion = JSON.parse(datosSesion);
@@ -162,7 +175,7 @@ buttonRegistro.addEventListener('click', () => {
           if (result.isConfirmed) {
             sessionStorage.removeItem('userarioActivo'),
               location.reload()
-
+              body.style.overflow = 'auto';
           } else if (
             /* Read more about handling dismissals below */
             result.dismiss === Swal.DismissReason.cancel
@@ -170,13 +183,15 @@ buttonRegistro.addEventListener('click', () => {
             timerProgressBar: true
           }
 
-        })  
+        })
       } else if (
-          /* Read more about handling dismissals below */
-          result.dismiss === Swal.DismissReason.cancel
-        ) {
-          timerProgressBar: true
-      } 
+        /* Read more about handling dismissals below */
+        result.dismiss === Swal.DismissReason.cancel
+      ) {
+        timerProgressBar: true
+      }
     })
   }
+  // vuelvo a habilitar el scrolleo 
+  body.style.overflow = 'auto';
 })

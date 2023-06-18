@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <link rel="stylesheet" href="../styles/css/style-shop-reco.css">
+</head>
+
+<body>
+
+    <section id="carrito">
+        <section id="carrito-contenedor">
+            <table class="table table-hover" id="carrito-productos">
+                <thead>
+                    <tr>
+                        <th scope="col" colspan="5" class="fs-3">Carrito</th>
+
+                    </tr>
+                </thead>
+                <tbody class="">
+                    <tr class="productos-filas">
+                        <td class="productos-foto">
+                            <img class="foto" src="../imagenes/imagenes_baseDatos/acacia.jpg" alt="">
+                        </td>
+                        <td>nombre del producto</td>
+                        <td>
+                            <div class="input-group">
+                                <button id="carrito-boton-restas" class="btn btn-outline-secondary"
+                                    type="button">-</button>
+                                <input id="carrito-contador" type="number" class="form-control" placeholder="1">
+                                <button id="carrito-boton-sumar" class="btn btn-outline-secondary"
+                                    type="button">+</button>
+                            </div>
+                        </td>
+                        <td id="precio${item}">$precio</td>
+                    </tr>
+                    <tr class="productos-filas">
+                        <td class="productos-foto">
+                            <img class="foto" src="../imagenes/imagenes_baseDatos/costillas_de_adan.png" alt="">
+                        </td>
+                        <td>nombre del producto</td>
+                        <td>
+                            <div class="input-group">
+                                <button id="carrito-boton-restas" class="btn btn-outline-secondary"
+                                    type="button">-</button>
+                                <input id="carrito-contador" type="number" class="form-control" placeholder="1">
+                                <button id="carrito-boton-sumar" class="btn btn-outline-secondary"
+                                    type="button">+</button>
+                            </div>
+                        </td>
+                        <td id="precio${item}">$precio</td>
+                    </tr>
+                    <tr class="productos-filas">
+                        <td class="productos-foto">
+                            <img class="foto" src="../imagenes/imagenes_baseDatos/hiedra_inglesa.jpg" alt="">
+                        </td>
+                        <td>nombre del producto</td>
+                        <td>
+                            <div class="input-group">
+                                <button id="carrito-boton-restas" class="btn btn-outline-secondary"
+                                    type="button">-</button>
+                                <input id="carrito-contador" type="number" class="form-control" placeholder="1">
+                                <button id="carrito-boton-sumar" class="btn btn-outline-secondary"
+                                    type="button">+</button>
+                            </div>
+                        </td>
+                        <td id="precio${item}">$precio</td>
+                    </tr>
+
+                    <tr class="productos-filas">
+                        <td class="productos-foto">
+                            <img class="foto" src="../imagenes/imagenes_baseDatos/hiedra_inglesa.jpg" alt="">
+                        </td>
+                        <td>nombre del producto</td>
+                        <td>
+                            <div class="input-group">
+                                <button id="carrito-boton-restas" class="btn btn-outline-secondary"
+                                    type="button">-</button>
+                                <input id="carrito-contador" type="number" class="form-control" placeholder="1">
+                                <button id="carrito-boton-sumar" class="btn btn-outline-secondary"
+                                    type="button">+</button>
+                            </div>
+                        </td>
+                        <td id="precio${item}">$precio</td>
+                    </tr>
+
+                    <tr class="productos-filas">
+                        <td class="productos-foto">
+                            <img class="foto" src="../imagenes/imagenes_baseDatos/hiedra_inglesa.jpg" alt="">
+                        </td>
+                        <td>nombre del producto</td>
+                        <td>
+                            <div class="input-group">
+                                <button id="carrito-boton-restas" class="btn btn-outline-secondary"
+                                    type="button">-</button>
+                                <input id="carrito-contador" type="number" class="form-control" placeholder="1">
+                                <button id="carrito-boton-sumar" class="btn btn-outline-secondary"
+                                    type="button">+</button>
+                            </div>
+                        </td>
+                        <td id="precio${item}">$precio</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <!-- suma total de productos  -->
+            <table class="table-danger" id="carrito-total">
+                <tbody class="">
+                    <thead>
+                        <tr>
+                            <th scope="col" colspan="5" class="fs-3">Total</th>
+                        </tr>
+                    </thead>
+                    <tr>
+
+                        <td>Producto</td>
+                        <td class="total-precio">$precio</td>
+
+                    </tr>
+                    <tr>
+
+                        <td>Producto</td>
+                        <td class="total-precio">$precio</td>
+
+                    </tr>
+                    <tr>
+                        <td>Producto</td>
+                        <td class="total-precio">$precio</td>
+                    </tr>
+
+                    <tr>
+                        <td>Producto</td>
+                        <td class="total-precio">$precio</td>
+                    </tr>
+
+                    <tr>
+                        <td>Producto</td>
+                        <td class="total-precio">$precio</td>
+                    </tr>
+                    <tr>
+
+                        <td>total</td>
+                        <td class="total-precio">$$$$$</td>
+
+                    </tr>
+
+                    <tr class="carrito-fin" colspan="2">
+                        <td><button type="button" class="btn btn-danger">volver</button></td>
+                        <td><button type="button" class="btn btn-success">finalizar compra</button></td>
+                    </tr>
+                    
+                </tbody>
+
+              
+            </table>
+        </section>
+    </section>
+
+</body>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+    crossorigin="anonymous"></script>
+
+</html>

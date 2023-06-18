@@ -127,17 +127,6 @@ login.addEventListener('click', () => {
             confirmButtonColor: '#198754',
         })
     }
-
-
-
-
-
-
-
-
-
-
-
 })
 // validaciones 
 let usuario = document.getElementById('user');

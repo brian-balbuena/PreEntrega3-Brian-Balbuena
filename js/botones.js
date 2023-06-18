@@ -1,11 +1,10 @@
-
-
 // capturo boton recomendación 
 let botonEnviar = document.getElementById('buscarReco');
 
+
+
 botonEnviar.addEventListener("click", () => {
     // evito la recarga de pagina
-    // tengo que meterlo en el click del botton para poder capturar los valores del input nombre
     let form = document.getElementById('form');
     let nom;
     form.addEventListener('submit', (event) => {

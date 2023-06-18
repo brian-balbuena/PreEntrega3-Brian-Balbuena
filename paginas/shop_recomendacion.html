@@ -29,6 +29,7 @@
 
 <body id="body-shop-recomendacion">
 
+    <!-- login  -->
     <section class="registro" id="card-registro">
         <div class="frente d-flex fw-bold" id="fren">
             <div class="registro-foto" id="contenido1">
@@ -65,7 +66,70 @@
             </div>
         </div>
     </section>
+    <!-- carrito  -->
+    <section id="carrito">
+        <section id="carrito-contenedor">
+            <table class="table table-hover" id="carrito-productos">
+                <thead>
+                    <tr>
+                        <th scope="col" colspan="5" class="fs-3">Carrito</th>
 
+                    </tr>
+                </thead>  
+            </table>
+
+            <!-- suma total de productos  -->
+            <table class="table-danger" id="carrito-total">
+                <tbody class="">
+                    <thead>
+                        <tr>
+                            <th scope="col" colspan="5" class="fs-3">Total</th>
+                        </tr>
+                    </thead>
+                    <tr>
+
+                        <td>Producto</td>
+                        <td class="total-precio">$precio</td>
+
+                    </tr>
+                    <tr>
+
+                        <td>Producto</td>
+                        <td class="total-precio">$precio</td>
+
+                    </tr>
+                    <tr>
+                        <td>Producto</td>
+                        <td class="total-precio">$precio</td>
+                    </tr>
+
+                    <tr>
+                        <td>Producto</td>
+                        <td class="total-precio">$precio</td>
+                    </tr>
+
+                    <tr>
+                        <td>Producto</td>
+                        <td class="total-precio">$precio</td>
+                    </tr>
+                    <tr>
+
+                        <td>total</td>
+                        <td class="total-precio">$$$$$</td>
+
+                    </tr>
+
+                    <tr class="carrito-fin" colspan="2">
+                        <td><button type="button" class="btn btn-danger" id="volver-shop">volver</button></td>
+                        <td><button type="button" class="btn btn-success">finalizar compra</button></td>
+                    </tr>
+                    
+                </tbody>
+
+              
+            </table>
+        </section>
+    </section>
     <!-- barra de navegaion -->
     <section class="menu container-fluid">
         <nav class="navbar navbar-expand-lg bg-transparent">
@@ -110,7 +174,7 @@
                     </svg>
                 </button>
 
-                <button type="button" class="botones-inferior  btn bg-transparent position-relative">
+                <button type="button" class="botones-inferior  btn bg-transparent position-relative" id="button-carrito">
                     <svg xmlns="http://www.w3.org/2000/svg" width="45" height="45" fill="currentColor"
                         class="bi bi-cart4" viewBox="0 0 16 16">
                         <path
@@ -145,7 +209,7 @@
     <section class="footer-shop ">
 
         <div class="footer-enlaces-recomendacion">
-            <button id="boton" type="button" class="btn btn-outline-success">Buscar recomendación</button>
+            <button id="volver-form" type="button" class="btn btn-outline-success">Buscar recomendación</button>
         </div>
 
         <div class="footer-enlaces d-flex">
@@ -173,11 +237,12 @@
         </div>
 
     </section>
+    <script src="../js/datos.js"></script>
     <script src="../js/js-shop/reco.js"></script>
     <script src="../js/js-shop/funciones-registro.js"></script>
     <script src="../js/js-shop/registro.js"></script>
-    <script src="../js/datos.js"></script>
     <script src="../js/funciones.js"></script>
+    <script src="../js/js-shop/carrito.js"></script>
    
 
 
