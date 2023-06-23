@@ -1,15 +1,3 @@
-// creo nuevo usuario 
-
-let usuarios = JSON.parse(localStorage.getItem('usuarios')) || [];
-
-class Newuser {
-    constructor(info) {
-        this.mail = info.mail;
-        this.nombre = info.nombre;
-        this.password = info.password;
-        this.estado = info.estado;
-    }
-}
 
 // visuales
 let giro = document.getElementById('vuelta');
@@ -38,6 +26,19 @@ vuelta.addEventListener('click', () => {
     }
 
 })
+
+// creo nuevo usuario 
+
+let usuarios = JSON.parse(localStorage.getItem('usuarios')) || [];
+
+class Newuser {
+    constructor(info) {
+        this.mail = info.mail;
+        this.user = info.user;
+        this.password = info.password;
+        this.estado = info.estado;
+    }
+}
 
 // agregar nuevo usuario 
 // capturo los input 

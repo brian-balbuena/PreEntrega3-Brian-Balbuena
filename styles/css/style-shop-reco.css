@@ -271,8 +271,14 @@ height: 100%;
 
 .input-group {
     justify-content: center;
-    width: 60%;
+   align-items: flex-start;
 }
 .carrito-fin {
    text-align: center;
+}
+
+.input-cantidad {
+    width: 150px;
+    background-color: #DFE8CC;
+    height: 30px;
 }

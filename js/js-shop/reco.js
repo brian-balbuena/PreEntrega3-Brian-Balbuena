@@ -7,7 +7,8 @@ arrayDatosPersonales = JSON.parse(datosArray);
 nombreUser = arrayDatosPersonales[0].nombre;
 mailUser = arrayDatosPersonales[0].mail;
 
-carrito = [];
+let carrito = JSON.parse(sessionStorage.getItem('carrito')) || [];;
+
 
 // usuarios registrados 
 let userLogin = [];
@@ -54,6 +55,19 @@ document.addEventListener('DOMContentLoaded', () => {
     console.log("no hay session")
   }
 
+  // verifico si hay alguna compra guardada en la sessionStorage 
+  let datosCarrito = sessionStorage.getItem('carrito');
+  let arrayCarrito = JSON.parse(datosCarrito);
+  contador = 0;
+
+  if (JSON.parse(sessionStorage.getItem('carrito')) ){
+   for (let i = 0; i < arrayCarrito.length; i++){
+    contador = parseInt(contador) + parseInt(`${arrayCarrito[i].cantidad}`);
+   }
+   let spanCarrito = document.getElementById('span-carrito');
+   spanCarrito.innerHTML = contador;
+  }
+
   // se crean las tarjetas de recomendacion que trae desde el form 
   for (let i = 0; i < arrayRecomendacion.length; i++) {
     let galeryCard = document.getElementById('galery-card');
@@ -95,6 +109,7 @@ document.addEventListener('DOMContentLoaded', () => {
     inputAdd.setAttribute('type', 'number');
     inputAdd.className = ("form-control");
     inputAdd.value = ("1");
+    inputAdd.min = ("0");
     inputAdd.setAttribute('aria-label', "Recipient's username");
     inputAdd.setAttribute('aria-describedby', 'button-addon2');
     inputAdd.id = (`inputAdd${arrayRecomendacion[i].ID}`);
@@ -109,23 +124,104 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
     // agrego la cantidad e productos a la session 
-    agregarCarrito = document.getElementById(`addCarrito${arrayRecomendacion[i].ID}`)
-    let inputTarjeta = document.getElementById(`inputAdd${arrayRecomendacion[i].ID}`);
-    arrayRecomendacion[i].cantidad = `${inputTarjeta.value}`;
-    console.log(arrayRecomendacion[i].nombre)
-    console.log(arrayRecomendacion[i].cantidad)
+    let agregarCarrito = document.getElementById(`addCarrito${arrayRecomendacion[i].ID}`)
+    // let inputTarjeta = document.getElementById(`inputAdd${arrayRecomendacion[i].ID}`);
+    // arrayRecomendacion[i].cantidad = `${inputTarjeta.value}`;
+    // console.log(arrayRecomendacion[i].nombre)
+    // console.log(arrayRecomendacion[i].cantidad)
     agregarCarrito.addEventListener('click', () => {
-      // let cantProducto = inputTarjeta.ariaLabel;
       let inputTarjeta = document.getElementById(`inputAdd${arrayRecomendacion[i].ID}`);
+      let spanCarrito = document.getElementById('span-carrito');
+      // si existe un carrito cargado a la session 
+      if (JSON.parse(sessionStorage.getItem('carrito'))) {
+        let carritoSesion = sessionStorage.getItem('carrito');
+        let carritoGuardado = JSON.parse(carritoSesion);
+        const objetoCarrito = carritoGuardado.find(producto => producto.nombre === `${arrayRecomendacion[i].nombre}`);
 
-      // agregar la cantidad a cada producto 
+        // verifico si el producto ya esta en el carrito 
+        if (objetoCarrito) {
+          console.log("existe el producto en el carrito")
+          // modifico el cantidad en el array 
+          objetoCarrito.cantidad = (parseInt(`${objetoCarrito.cantidad}`) + parseInt(`${inputTarjeta.value}`));
+          // lo vuelvo a cargar modificado a la sessionStorage , le agrego una alerta
+          arrayCarrito = JSON.stringify(carritoGuardado);
+          sessionStorage.setItem('carrito', arrayCarrito);
+          const Toast = Swal.mixin({
+            toast: true,
+            position: 'top-end',
+            showConfirmButton: false,
+            timer: 2000,
+            didOpen: (toast) => {
+              toast.addEventListener('mouseenter', Swal.stopTimer)
+              toast.addEventListener('mouseleave', Swal.resumeTimer)
+            }
+          })
+          Toast.fire({
+            icon: 'success',
+            title: `${arrayRecomendacion[i].nombre} x ${inputTarjeta.value}`,
+            text: 'agregado al carrito'
+          })
+          // modifico el numero del spanCarrito 
+          spanCarrito.innerHTML = parseInt(`${spanCarrito.innerHTML}`) + parseInt(inputTarjeta.value);
 
+        } else {
+          // tomo el array carrito del sessionStorage y le agrego el nuevo producto, le agrego una alerta
+          const clave = 'cantidad';
+          arrayRecomendacion[i][clave] = `${inputTarjeta.value}`;
+          carritoGuardado.push(arrayRecomendacion[i]);
+          arrayCarrito = JSON.stringify(carritoGuardado);
+          sessionStorage.setItem('carrito', arrayCarrito);
+          const Toast = Swal.mixin({
+            toast: true,
+            position: 'top-end',
+            showConfirmButton: false,
+            timer: 2000,
+            didOpen: (toast) => {
+              toast.addEventListener('mouseenter', Swal.stopTimer)
+              toast.addEventListener('mouseleave', Swal.resumeTimer)
+            }
+          })
+
+          Toast.fire({
+            icon: 'success',
+            title: `${arrayRecomendacion[i].nombre} x ${inputTarjeta.value}`,
+            text: 'agregado al carrito'
+          })
+          // modifico el numero del spanCarrito 
+          spanCarrito.innerHTML = parseInt(`${spanCarrito.innerHTML}`) + parseInt(inputTarjeta.value);
+
+        }
+
+      } else {
+        // si no existe el carrito crea el primer objeto del array, le agrego una alerta
+        const clave = 'cantidad';
+        arrayRecomendacion[i][clave] = `${inputTarjeta.value}`;
+        carrito.push(arrayRecomendacion[i]);
+        arrayCarrito = JSON.stringify(carrito);
+        sessionStorage.setItem('carrito', arrayCarrito);
+        const Toast = Swal.mixin({
+          toast: true,
+          position: 'top-end',
+          showConfirmButton: false,
+          timer: 2000,
+          didOpen: (toast) => {
+            toast.addEventListener('mouseenter', Swal.stopTimer)
+            toast.addEventListener('mouseleave', Swal.resumeTimer)
+          }
+        })
+
+        Toast.fire({
+          icon: 'success',
+          title: `${arrayRecomendacion[i].nombre} x ${inputTarjeta.value}`,
+          text: 'agregado al carrito'
+        })
+        // modifico el numero del spanCarrito 
+        spanCarrito.innerHTML = parseInt(`${spanCarrito.innerHTML}`) + parseInt(inputTarjeta.value);
+      }
     })
   }
 })
 
-
-// corregir se bloquea el scoll cuando el usuario esta activo
 // activo el login
 let registro = document.getElementById('card-registro');
 let buttonRegistro = document.getElementById('button-registro');
@@ -134,11 +230,7 @@ buttonRegistro.addEventListener('click', () => {
   if (sessionStorage.getItem('userarioActivo') == null) {
     registro.style.display = "flex";
     // evito el scroleo 
-     body = document.getElementsByTagName('body')[0];
-    // Establece la posición de desplazamiento a la posición guardada
-    window.onscroll = () => {
-      window.scrollTo(0, scrollPosition);
-    };
+    body = document.getElementsByTagName('body')[0];
     // Agrega el estilo "overflow: hidden" al <body>
     body.style.overflow = 'hidden';
 
@@ -175,7 +267,7 @@ buttonRegistro.addEventListener('click', () => {
           if (result.isConfirmed) {
             sessionStorage.removeItem('userarioActivo'),
               location.reload()
-              body.style.overflow = 'auto';
+            body.style.overflow = 'auto';
           } else if (
             /* Read more about handling dismissals below */
             result.dismiss === Swal.DismissReason.cancel

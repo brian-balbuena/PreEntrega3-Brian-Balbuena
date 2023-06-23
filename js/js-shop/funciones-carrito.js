@@ -1,0 +1,5 @@
+function addCarrito (id, cantidad) {
+
+    
+
+}

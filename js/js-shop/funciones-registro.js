@@ -46,7 +46,7 @@ function crearUsuario(user, email, contrasenia) {
     
     let infoNew = {
         mail: `${email}`,
-        nombre: `${user}`,
+        user: `${user}`,
         password: `${contrasenia}`,
         estado: 0,
     }

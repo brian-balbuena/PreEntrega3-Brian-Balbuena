@@ -291,8 +291,8 @@ function crearTarjeta(array, nombre, mail) {
 
     // creo un array con los datos personales para utilizarlo en el login 
     class Persona {
-        constructor(nombre, email) {
-            this.nombre = nombre;
+        constructor(user, email) {
+            this.user = user;
             this.mail = email;
         }
     }
