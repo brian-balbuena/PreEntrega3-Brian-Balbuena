@@ -248,6 +248,7 @@ height: 100%;
 
 .total-precio {
     text-align: right;
+ 
 }
 
 .productos-foto {
@@ -281,4 +282,12 @@ height: 100%;
     width: 150px;
     background-color: #DFE8CC;
     height: 30px;
+}
+
+.simbolo-carrito {
+    text-align: center;
+}
+
+#total {
+    border-top: solid black 1px;
 }

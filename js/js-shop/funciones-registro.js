@@ -9,6 +9,7 @@ function comprobacionMail(array, mail) {
             icon: 'error',
             title: 'Mail invalido',
             text: `El mail ${mail.value} ya pertenece a un usuario`,
+            confirmButtonColor: '#14A44D'
         });
         return false
     } else {
@@ -29,6 +30,7 @@ function comprobacionPassword(password, validacion) {
             icon: 'error',
             title: 'ERROR',
             text: 'No coinsiden los password',
+            confirmButtonColor: '#14A44D'
         });
         return false;
     } else {

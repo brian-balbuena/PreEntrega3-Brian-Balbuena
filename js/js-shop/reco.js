@@ -13,8 +13,11 @@ let carrito = JSON.parse(sessionStorage.getItem('carrito')) || [];;
 // usuarios registrados 
 let userLogin = [];
 
+// button para volver al form 
 let botonn = document.getElementById('volver-form');
 botonn.addEventListener('click', () => {
+  // borro el carrito de la sessionStorage 
+  sessionStorage.removeItem('carrito');
   window.location.href = "../paginas/formulario.html";
 })
 
@@ -43,8 +46,6 @@ document.addEventListener('DOMContentLoaded', () => {
     remover.remove();
     let iconoLogin = document.getElementById('iconUser');
     // Crear los elementos necesrios para cambiar el icono del ususario
-    // let buttonUser = document.getElementById('button-registro');
-    // buttonUser.id = ("usuario-activo");
     let pathElement1 = document.createElementNS("http://www.w3.org/2000/svg", "path");
     pathElement1.setAttribute("d", "M12.5 16a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7Zm1.679-4.493-1.335 2.226a.75.75 0 0 1-1.174.144l-.774-.773a.5.5 0 0 1 .708-.708l.547.548 1.17-1.951a.5.5 0 1 1 .858.514ZM11 5a3 3 0 1 1-6 0 3 3 0 0 1 6 0ZM8 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z");
     iconoLogin.appendChild(pathElement1);
@@ -60,12 +61,12 @@ document.addEventListener('DOMContentLoaded', () => {
   let arrayCarrito = JSON.parse(datosCarrito);
   contador = 0;
 
-  if (JSON.parse(sessionStorage.getItem('carrito')) ){
-   for (let i = 0; i < arrayCarrito.length; i++){
-    contador = parseInt(contador) + parseInt(`${arrayCarrito[i].cantidad}`);
-   }
-   let spanCarrito = document.getElementById('span-carrito');
-   spanCarrito.innerHTML = contador;
+  if (JSON.parse(sessionStorage.getItem('carrito'))) {
+    for (let i = 0; i < arrayCarrito.length; i++) {
+      contador = parseInt(contador) + parseInt(`${arrayCarrito[i].cantidad}`);
+    }
+    let spanCarrito = document.getElementById('span-carrito');
+    spanCarrito.innerHTML = contador;
   }
 
   // se crean las tarjetas de recomendacion que trae desde el form 
@@ -125,10 +126,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // agrego la cantidad e productos a la session 
     let agregarCarrito = document.getElementById(`addCarrito${arrayRecomendacion[i].ID}`)
-    // let inputTarjeta = document.getElementById(`inputAdd${arrayRecomendacion[i].ID}`);
-    // arrayRecomendacion[i].cantidad = `${inputTarjeta.value}`;
-    // console.log(arrayRecomendacion[i].nombre)
-    // console.log(arrayRecomendacion[i].cantidad)
     agregarCarrito.addEventListener('click', () => {
       let inputTarjeta = document.getElementById(`inputAdd${arrayRecomendacion[i].ID}`);
       let spanCarrito = document.getElementById('span-carrito');
@@ -229,12 +226,6 @@ buttonRegistro.addEventListener('click', () => {
 
   if (sessionStorage.getItem('userarioActivo') == null) {
     registro.style.display = "flex";
-    // evito el scroleo 
-    body = document.getElementsByTagName('body')[0];
-    // Agrega el estilo "overflow: hidden" al <body>
-    body.style.overflow = 'hidden';
-
-
   } else {
     const swalWithBootstrapButtons = Swal.mixin({
       customClass: {
@@ -243,47 +234,43 @@ buttonRegistro.addEventListener('click', () => {
       },
       buttonsStyling: false
     })
-    // invertir el color de los botones 
     // usuo el sweetalert2 para crear un mini menu para la session 
     let datosSesion = sessionStorage.getItem('userarioActivo');
     let arraySesion = JSON.parse(datosSesion);
     swalWithBootstrapButtons.fire({
-      text: `Hola ${arraySesion.nombre}`,
+      text: `Hola ${arraySesion.user}`,
       icon: 'info',
       showCancelButton: true,
-      confirmButtonText: 'cerrar sesión',
-      cancelButtonText: '<- volver',
-      reverseButtons: true
+      confirmButtonText: '<- volver',
+      cancelButtonText: 'cerrar sesión',
     }).then((result) => {
       if (result.isConfirmed) {
+        result.dismiss === Swal.DismissReason.cancel
+      } else if (
+        /* Read more about handling dismissals below */
         swalWithBootstrapButtons.fire({
           text: `Estas seguro que queres cerrar sesión?`,
           icon: 'warning',
           showCancelButton: true,
-          confirmButtonText: 'si',
-          cancelButtonText: '<- volver',
-          reverseButtons: true
+          confirmButtonText: '<- volver',
+          cancelButtonText: 'si',
         }).then((result) => {
           if (result.isConfirmed) {
-            sessionStorage.removeItem('userarioActivo'),
-              location.reload()
-            body.style.overflow = 'auto';
+
+            result.dismiss === Swal.DismissReason.cancel
           } else if (
             /* Read more about handling dismissals below */
-            result.dismiss === Swal.DismissReason.cancel
+            sessionStorage.removeItem('userarioActivo'),
+            location.reload(),
+            body.style.overflow = 'auto'
           ) {
             timerProgressBar: true
           }
 
         })
-      } else if (
-        /* Read more about handling dismissals below */
-        result.dismiss === Swal.DismissReason.cancel
       ) {
         timerProgressBar: true
       }
     })
   }
-  // vuelvo a habilitar el scrolleo 
-  body.style.overflow = 'auto';
 })

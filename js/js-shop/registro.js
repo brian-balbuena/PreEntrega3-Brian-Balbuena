@@ -1,4 +1,3 @@
-
 // visuales
 let giro = document.getElementById('vuelta');
 let reversa = document.getElementById('reve');
@@ -13,7 +12,6 @@ giro.addEventListener('click', () => {
         frente.style.transform = "rotateY(-180deg)";
         reversa.style.transform = "rotateY(0deg)";
     }
-
 })
 vuelta.addEventListener('click', () => {
 
@@ -84,6 +82,7 @@ singUp.addEventListener('click', (usuarios) => {
                 icon: 'error',
                 title: 'Mail invalido',
                 text: `Ingresar un mail para crear un usuario`,
+                confirmButtonColor: '#14A44D'
             });
         }
     }
@@ -108,24 +107,23 @@ login.addEventListener('click', () => {
             activarUsuario(dataUsuarios, inputUser.value);
             Swal.fire({
                 icon: 'success',
-                title: `Bienvenido ${busqueda[0].nombre}`,
+                title: `Bienvenido ${busqueda[0].user}`,
                 timer: 1500,
-                confirmButtonColor: '#92BA92'
+                confirmButtonColor: '#14A44D'
             })
-
 
         } else {
             Swal.fire({
                 icon: 'error',
                 text: 'El mail o contraseña son incorrectos',
-                confirmButtonColor: '#198754',
+                confirmButtonColor: '#14A44D',
             })
         }
     } else {
         Swal.fire({
             icon: 'error',
             text: 'El mail o contraseña son incorrectos',
-            confirmButtonColor: '#198754',
+            confirmButtonColor: '#14A44D'
         })
     }
 })
